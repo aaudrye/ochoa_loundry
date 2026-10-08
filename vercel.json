@@ -1,6 +1,5 @@
 {
     "version": 2,
-    "framework": null,
     "functions": {
         "api/index.php": {
             "runtime": "vercel-php@0.7.3"
@@ -12,6 +11,10 @@
             "dest": "/public/build/$1"
         },
         {
+            "src": "/(css|js|images|storage)/(.*)",
+            "dest": "/public/$1/$2"
+        },
+        {
             "src": "/(.*)",
             "dest": "/api/index.php"
         }
@@ -19,7 +22,7 @@
     "env": {
         "APP_ENV": "production",
         "LOG_CHANNEL": "stderr",
-        "VIEW_COMPILED_PATH": "/tmp",
+        "VIEW_COMPILED_PATH": "/tmp/storage/framework/views",
         "SESSION_DRIVER": "cookie"
     }
 }

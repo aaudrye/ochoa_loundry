@@ -1,6 +1,6 @@
 <?php
 
-// Buat folder storage di /tmp agar Vercel bisa menulis cache/views
+// Siapkan folder temporary untuk storage Laravel di Vercel (/tmp)
 $storageFolders = [
     '/tmp/storage/app/public',
     '/tmp/storage/framework/views',
@@ -15,9 +15,8 @@ foreach ($storageFolders as $folder) {
     }
 }
 
-// Set environment variable untuk storage & view path
 putenv('APP_STORAGE_PATH=/tmp/storage');
 putenv('VIEW_COMPILED_PATH=/tmp/storage/framework/views');
 
-// Forward request ke public/index.php bawaan Laravel
+// Load index.php utama dari folder public
 require __DIR__ . '/../public/index.php';
